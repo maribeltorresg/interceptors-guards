@@ -1,4 +1,6 @@
-<h1>Usuarios</h1>
+<!-- Interceptors -->
+<h1 class="text-center">Interceptors</h1>
+<h4>Usuarios</h4>
 <button (click)="mostrarUsuarios()">Mostrar usuarios</button>
 <hr />
 <div *ngIf="mostrar">
@@ -6,3 +8,24 @@
     <li *ngFor="let user of users">{{ user.name }}</li>
   </ul>
 </div>
+
+<!-- Guards -->
+<h1 class="text-center">Guards</h1>
+<div class="navbar px-5">
+  <div class="logo">
+    <h5 text-center>My app</h5>
+  </div>
+  <ul>
+    <li class="nav-item" *ngIf="!isLogin()">
+      <a routerLink="/login">Login</a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="/posts">Posts</a>
+    </li>
+    <li class="nav-item" *ngIf="isLogin()">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
